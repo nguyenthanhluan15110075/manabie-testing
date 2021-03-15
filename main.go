@@ -50,7 +50,6 @@ func main() {
 
 	// Initial config server for processing max tasks / day of user
 	
-	/*
 	var configServers = []storages.ConfigServer{{
 		Name:  "config_max_tasks_per_day",
 		Value: 5,
@@ -64,8 +63,7 @@ func main() {
 			db.Model(&storages.ConfigServer{}).Where("name=?", configServers[index].Name).Update("value", configServers[index].Value)
 		}
 	}
-	*/
-	
+
 	var configTask storages.ConfigServer
 	rsConfig := db.Where("name=?", "config_max_tasks_per_day").First(&configTask)
 	if rsConfig.Error != nil {
